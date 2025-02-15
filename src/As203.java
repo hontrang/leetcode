@@ -22,13 +22,6 @@ public class As203 {
         return dummyNode.next;
     }
 
-    static void printList(ListNode node) {
-        while (node != null) {
-            System.out.println(node.val);
-            node = node.next;
-        }
-    }
-
     public static void main(String[] args) {
         // testcase 1
         ListNode head = new ListNode(1);
@@ -49,6 +42,6 @@ public class As203 {
         // ListNode head = new ListNode(1);
 
         As203 obj = new As203();
-        printList(obj.removeElements(head, 6));
+        obj.removeElements(head, 6).printList();
     }
 }

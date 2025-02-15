@@ -13,4 +13,12 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    void printList() {
+        ListNode node = this;
+        while (node != null) {
+            System.out.println(node.val);
+            node = node.next;
+        }
+    }
 }

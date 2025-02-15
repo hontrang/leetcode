@@ -20,13 +20,6 @@ public class As206 {
         return prev;
     }
 
-    static void printList(ListNode node) {
-        while (node != null) {
-            System.out.print(" " + node.val);
-            node = node.next;
-        }
-    }
-
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
@@ -34,6 +27,6 @@ public class As206 {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
         head = reverseList(head);
-        printList(head);
+        head.printList();
     }
 }
