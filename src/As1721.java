@@ -1,33 +1,37 @@
-import java.util.ArrayList;
-
 public class As1721 {
     public ListNode swapNodes(ListNode head, int k) {
-        ArrayList<ListNode> nodes = new ArrayList<>();
-        ListNode dummyNode = new ListNode();
-        ListNode current = dummyNode;
-        while (head != null) {
-            nodes.add(head);
-            head = head.next;
+        ListNode dummyNode = head;
+        ListNode prevX = null;
+        ListNode prevY = null;
+        ListNode nodeX = null;
+        ListNode nodeY = null;
+        int size = 0;
+        while (dummyNode != null) {
+            dummyNode = dummyNode.next;
+            size++;
         }
-        if (nodes.size() == 2) {
-            dummyNode.next = nodes.get(1);
-            dummyNode.next.next = nodes.get(0);
-            dummyNode.next.next.next = null;
-            return dummyNode.next;
+        int nodeXPos = k - 1;
+        int nodeYPos = size - k;
+        dummyNode = head;
+        for (int i = 0; i < size; i++) {
+            if (i == nodeXPos - 1) prevX = dummyNode;
+            if (i == nodeXPos) nodeX = dummyNode;
+            if (i == nodeYPos - 1) prevY = dummyNode;
+            if (i == nodeYPos) nodeY = dummyNode;
+            dummyNode = dummyNode.next;
         }
-        if (k == 1 || k == nodes.size()) {
-            nodes.get(0).next = null;
-        }
-        ListNode nodeA = nodes.get(k - 1);
-        ListNode nodeB = nodes.get(nodes.size() - k);
-        nodes.set(k - 1, nodeB);
-        nodes.set(nodes.size() - k, nodeA);
+        if (nodeX == null || nodeY == null || nodeX == nodeY) return head;
+        if (prevX != null) prevX.next = nodeY;
+        else head = nodeY;
 
-        for (ListNode node : nodes) {
-            current.next = node;
-            current = current.next;
-        }
-        return dummyNode.next;
+        if (prevY != null) prevY.next = nodeX;
+        else head = nodeX;
+
+        ListNode temp = nodeX.next;
+        nodeX.next = nodeY.next;
+        nodeY.next = temp;
+
+        return head;
     }
 
     public static void main(String[] args) {
@@ -42,13 +46,26 @@ public class As1721 {
 //        head.next.next.next.next.next.next.next.next = new ListNode(9);
 //        head.next.next.next.next.next.next.next.next.next = new ListNode(5);
 
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+//        head.next.next.next.next.next = new ListNode(6);
+//        As1721 obj = new As1721();
+//        obj.swapNodes(head, 2).printList();
+
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        As1721 obj = new As1721();
+//        obj.swapNodes(head, 1).printList();
+
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = new ListNode(6);
         As1721 obj = new As1721();
-        obj.swapNodes(head, 2).printList();
+        obj.swapNodes(head, 1).printList();
     }
 }
