@@ -1,4 +1,5 @@
 public class As206 {
+    // https://youtube.com/shorts/Du4elALktj8?si=6OTsbyPTtq1_qzos
     public static ListNode reverseList(ListNode head) {
         // Initialize three pointers: curr, prev and next
         ListNode curr = head, prev = null, next;
