@@ -1,29 +1,42 @@
-import java.util.ArrayList;
-
 public class As143 {
     public ListNode reorderList(ListNode head) {
-        ArrayList<ListNode> list = new ArrayList<>();
-        ArrayList<ListNode> tempList = new ArrayList<>();
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode secondPart = slow.next;
+        slow.next = null;
+        ListNode current = secondPart;
+        ListNode prev = null;
+        ListNode next;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+
+            prev = current;
+            current = next;
+        }
+
+        secondPart = prev;
+        ListNode firstPart = head;
         ListNode dummyNode = new ListNode();
-        ListNode current = dummyNode;
-        while (head != null) {
-            list.add(head);
-            head = head.next;
+        ListNode pointer = dummyNode;
+        while (secondPart != null) {
+            ListNode nextFirst = firstPart.next;
+            ListNode nextSecond = secondPart.next;
+            firstPart.next = secondPart;
+            pointer.next = firstPart;
+            firstPart = nextFirst;
+            secondPart = nextSecond;
+            pointer = pointer.next.next;
         }
-        int mid = list.size() % 2 == 0 ? list.size() / 2 - 1 : list.size() / 2;
-        for (int i = 0; i < list.size(); i++) {
-            ListNode item1 = list.get(i);
-            ListNode item2 = list.get(list.size() - i - 1);
-            if (i <= mid) {
-                tempList.add(item1);
-                tempList.add(item2);
-            }
+        if(firstPart!=null) {
+            pointer.next = firstPart;
+        }else {
+            pointer.next = secondPart;
         }
-        for (ListNode n : tempList) {
-            current.next = n;
-            current = current.next;
-        }
-        current.next = null;
         return dummyNode.next;
     }
 
