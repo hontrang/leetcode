@@ -1,4 +1,4 @@
-public class As143 {
+public class LeetCode143 {
     public ListNode reorderList(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -49,7 +49,7 @@ public class As143 {
 
         // 1 2 3 4
         // 1 2 3 4 5
-        As143 obj = new As143();
+        LeetCode143 obj = new LeetCode143();
         obj.reorderList(head).printList();
     }
 }

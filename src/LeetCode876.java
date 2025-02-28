@@ -1,4 +1,4 @@
-public class As876 {
+public class LeetCode876 {
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -16,7 +16,7 @@ public class As876 {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
         head.next.next.next.next.next = new ListNode(6);
-        As876 obj = new As876();
+        LeetCode876 obj = new LeetCode876();
         obj.middleNode(head).printList();
     }
 }

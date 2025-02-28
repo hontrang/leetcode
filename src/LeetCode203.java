@@ -1,4 +1,4 @@
-public class As203 {
+public class LeetCode203 {
     public ListNode removeElements(ListNode head, int val) {
         ListNode dummyNode = new ListNode();
         ListNode current = dummyNode;
@@ -41,7 +41,7 @@ public class As203 {
         // testcase 3
         // ListNode head = new ListNode(1);
 
-        As203 obj = new As203();
+        LeetCode203 obj = new LeetCode203();
         obj.removeElements(head, 6).printList();
     }
 }

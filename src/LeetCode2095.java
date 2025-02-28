@@ -1,4 +1,4 @@
-public class As2095 {
+public class LeetCode2095 {
     public ListNode deleteMiddle(ListNode head) {
         ListNode current = head;
         ListNode slow = head;
@@ -46,7 +46,7 @@ public class As2095 {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        As2095 obj = new As2095();
+        LeetCode2095 obj = new LeetCode2095();
         obj.deleteMiddle(head).printList();
     }
 }

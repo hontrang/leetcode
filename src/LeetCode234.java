@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class As234 {
+public class LeetCode234 {
 
     public boolean isPalindrome(ListNode head) {
         List listValue = new ArrayList<Character>();
@@ -24,7 +24,7 @@ public class As234 {
         head.next = new ListNode(2);
         head.next.next = new ListNode(2);
         head.next.next.next = new ListNode(1);
-        As234 obj = new As234();
+        LeetCode234 obj = new LeetCode234();
         System.out.println(obj.isPalindrome(head));
     }
 }
